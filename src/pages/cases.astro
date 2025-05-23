@@ -1,7 +1,33 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
+import Hero from "../components/organisms/Hero.astro";
+import CardCases from "../components/molecules/CardCases.astro";
+
+import cases from "../data/cases.json";
+import AboutGallery from "../components/organisms/AboutGallery.astro";
 ---
 
 <MainLayout title="Cases | Twentyfour">
-  <h1 class="heading-xlarge">Cases</h1>
+  <Hero variant="default" title="Cases" text="I mere end 10 år har vi hjulpet virksomheder med at løse digitale udfordringer – store som små. Vi elsker at finde løsninger, der faktisk virker – også når tingene bliver komplekse. " />
+  <section class="py-32 grid gap-10">
+    <header class="flex justify-between">
+      <p>Filter</p>
+      <p>Søgefunktion</p>
+    </header>
+    <ul class="grid grid-cols-3 gap-x-5 gap-y-11 items-start">
+      {
+        cases.map((oneCase) => {
+          return <CardCases data={oneCase} variant={oneCase.thumbnail} />;
+        })
+      }
+      {
+        cases.map((oneCase) => {
+          return <CardCases data={oneCase} variant={oneCase.thumbnail} />;
+        })
+      }
+    </ul>
+    <footer class="grid place-content-center">
+      <p>Pagination</p>
+    </footer>
+  </section>
 </MainLayout>

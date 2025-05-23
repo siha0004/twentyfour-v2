@@ -94,9 +94,9 @@
   /* Grafikker */
   /* Clamp generator https://utopia.fyi/clamp/calculator?a=390,1728,32—48 */
 
-  --spacing-graphic-large: clamp(7.5rem, 4.8038rem + 11.0613vw, 16.75rem);
-  --spacing-graphic-medium: clamp(4.5rem, 3.1155rem + 5.6801vw, 9.25rem);
-  --spacing-graphic-small: clamp(2rem, 1.7085rem + 1.1958vw, 3rem);
+  --text-graphic-large: clamp(7.5rem, 4.8038rem + 11.0613vw, 16.75rem);
+  --text-graphic-medium: clamp(4.5rem, 3.1155rem + 5.6801vw, 9.25rem);
+  --text-graphic-small: clamp(2rem, 1.7085rem + 1.1958vw, 3rem);
   /****************************** TOKENS - COLORS******************************/
 
   /* Background color */

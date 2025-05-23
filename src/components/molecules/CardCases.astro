@@ -1,32 +1,42 @@
 ---
 import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+import img from "../../assets/images/kirk/thumbnail_image_kirk.jpg";
 
-import img from "../assets/about/stairs.webp";
 const { data, variant = "image" } = Astro.props;
 
-const blurStyle = "col-start-1 row-start-1 backdrop-blur-sm";
-const videoStyle = "bg-brand-lime aspect-video mx-[5%] self-center col-start-1 row-start-1 z-10";
+const blurStyle = "col-start-1 row-start-1 backdrop-blur-xs rounded-small";
+const videoStyle = " mx-[5%] self-center col-start-1 row-start-1 z-10 rounded-small";
 
 let variantClass = "hidden";
 
 if (variant === "video") {
   variantClass = "block";
 }
+
+// const images = import.meta.glob<{ default: ImageMetadata }>("/src/assets/images/*.{jpeg,jpg,png,gif}");
+// if (!images[data.img]) throw new Error(`"${data.img}" does not exist in glob: "src/assets/images/*.{jpeg,jpg,png,gif}"`);
+
+console.log("img:", data.img);
 ---
 
 <li class="grid content-start relative">
   <article>
-    <!-- <Image src={img} alt="Hejsa" /> -->
     <header class="grid grid-cols-1">
-      <div class="bg-brand-raspberry aspect-square col-start-1 row-start-1 col-span-1"></div>
+      <div class="aspect-square col-start-1 row-start-1 col-span-1 rounded-small">
+        <Image src={img} alt="Hejsa" class="object-cover aspect-square rounded-small" />
+        <!-- <Image src={images[data.img]()} alt="Hejsa" class="object-cover aspect-square" /> -->
+      </div>
       <div class:list={[blurStyle, variantClass]}></div>
-      <div class:list={[videoStyle, variantClass]}></div>
+      <div class:list={[videoStyle, variantClass]}>
+        <Image src={img} alt="Hejsa" class="object-cover rounded-small" />
+      </div>
     </header>
     <footer class="grid gap-1 mt-4">
       <h3 class="text-heading-small">
         <a href={`/${data.link}`} class="after:content-[''] after:absolute after:inset-0"> {data.company}</a>
       </h3>
-      <ul class="flex gap-2 text-body-tiny">
+      <ul class="flex flex-wrap gap-2 text-body-tiny">
         {
           data.services.map((service: JSON) => {
             return <li class="capitalize">{service}</li>;
