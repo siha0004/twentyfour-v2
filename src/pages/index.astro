@@ -1,7 +1,32 @@
 ---
+import ClientLogoWrapper from "../components/organisms/ClientLogoWrapper.astro";
+import CardServices from "../components/molecules/CardServices.astro";
+import IndexHero from "../components/organisms/IndexHero.astro";
+import SectionCases from "../components/organisms/SectionCases.astro";
 import MainLayout from "../layouts/MainLayout.astro";
+import AboutGallery from "../components/organisms/AboutGallery.astro";
 ---
 
 <MainLayout>
-  <h1 class="heading-display">MainLayout added</h1>
+  <section id="hero" class="">
+    <IndexHero />
+    <video src="https://lmssxxkhwlvcavzlaamg.supabase.co/storage/v1/object/public/video/hero/showcase.mp4" muted controls loop></video>
+  </section>
+  <section id="cases">
+    <SectionCases />
+  </section>
+  <section id="services" class="py-32 grid grid-cols-[4fr_8fr]">
+    <div>
+      <h2 class="heading-tagline">Tagline</h2>
+      <p class="text-heading-small"></p>
+    </div>
+    <ul class="grid md:grid-cols-2 gap-5">
+      <CardServices text="Vores mål er at gøre komplekse ideer letforståelige og skabe design, der ikke kun er æstetisk tiltalende, men også funktionelt stærke." />
+      <CardServices text="Vi ved, at integration er tricky og tidskrævende. Derfor bygger vi solide integrationer, der er både pålidelige og effektive – så dine systemer spiller sammen, uanset om de er nye eller allerede i drift." />
+      <CardServices text="Gennem webudvikling kan vi hjælpe dig med at bygge selve det digitale system. Vi udvikler og transformerer forretningsidéer, planer og virksomhedskoncepter til tilpassede og skræddersyede digitale løsninger." />
+      <CardServices text="Vi holder øje med dine løsninger, før fejlene opstår – med løbende opdateringer, overvågning og et nørdet fokus på stabil og sikker drift." />
+    </ul>
+  </section>
+  <section id="om"><AboutGallery /></section>
+  <section class="full-bleed overflow-hidden"><ClientLogoWrapper /></section>
 </MainLayout>
