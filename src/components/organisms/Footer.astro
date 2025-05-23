@@ -3,7 +3,40 @@ import Link from "../atoms/Link.astro";
 import { Icon } from "astro-icon/components";
 ---
 
-<footer class="grid grid-cols-4 lg:grid-cols-12 px-[max(1rem,_50%_-_var(--content-width)_/_2)] overflow-hidden relative">
+<footer class="grid grid-cols-4 lg:grid-cols-12 px-[max(1rem,_50%_-_var(--content-width)_/_2)] overflow-hidden py-32">
+  <article class="pb-24">
+    <h1 class="text-heading-xlarge text-text-primary pb-24"><span>Skal vi tage en snak </span><span class="">om dit næste projekt?</span></h1>
+    <Link href="" variant="ButtonPrimary" target="_blank">Kontakt os</Link>
+  </article>
+
+  <section class="grid gap-7">
+    <section class="flex justify-between items-center">
+      <ul class="flex flex-row gap-4 text-heading-small text-text-primary">
+        <li><a href="">+45 42 41 61 60</a></li>
+        <li><a href="">info@twentyfour.dk</a></li>
+      </ul>
+      <div class="self-end">toggle</div>
+    </section>
+
+    <section class="flex gap-4 justify-between items-center">
+      <div class="flex flex-row">
+        <Icon name="butterfly" class="text-text-primary text-heading-small bg-border-accent" />
+        <ul class="flex flex-row gap-4">
+          <li><p class="text-text-secondary">CVR. nr. 33757883</p></li>
+          <li><p class="text-text-secondary">Center Blvd. 5, indgang 7, 2300 København S</p></li>
+        </ul>
+      </div>
+      <div>
+        <ul class="flex flex-row">
+          <li><Link href="" variant="LinkPrimary" target="_blank">Cookiepolitik</Link></li>
+          <li><Link href="" variant="LinkPrimary" target="_blank">Linkedin</Link></li>
+        </ul>
+      </div>
+    </section>
+  </section>
+</footer>
+
+<!-- <footer class="grid grid-cols-4 lg:grid-cols-12 px-[max(1rem,_50%_-_var(--content-width)_/_2)] overflow-hidden relative">
   <section class="col-start-1 col-span-4 row-start-2 lg:col-span-9 lg:row-span-5 pb-24 lg:pb-24 z-10">
     <h1 class="text-heading-xlarge text-text-primary pb-11 lg:pb-16">Skal vi tage en snak <br /> om dit næste projekt?</h1>
     <h2 class="text-heading-small text-text-primary pb-4 lg:pb-8">+45 42 41 61 60</h2>
@@ -37,37 +70,4 @@ import { Icon } from "astro-icon/components";
   <div class="col-start-1 row-start-3 lg:col-start-1 lg:row-start-6 absolute left-[-3vw]"><Icon name="flower" class="w-graphic-medium h-graphic-medium" /></div>
   <div class="col-start-3 row-start-2 lg:col-start-10 lg:col-span-1 lg:row-start-4 place-content-end"><Icon name="butterfly" class="w-graphic-small h-graphic-small" /></div>
   <div class="col-start-4 row-start-4 lg:col-start-11 lg:row-start-5 row-span-2"><Icon name="square" class="w-graphic-large h-graphic-large" /></div>
-</footer>
-
-<!-- --- import Link from "../atoms/Link.astro"; import {Icon} from "astro-icon/components"; ---
-
-<footer class="grid grid-cols-4 lg:grid-cols-12 px-[max(1rem,_50%_-_var(--content-width)_/_2)] relative overflow-hidden">
-  <section class="col-start-1 col-span-4 row-start-2 lg:col-span-12 lg:row-start-2 lg:row-span-3 lg:pb-24 z-10">
-    <h1 class="text-heading-xlarge text-text-primary pb-16">Skal vi tage en snak <br /> om dit næste projekt?</h1>
-    <h2 class="text-heading-small text-text-primary pb-8">+45 42 41 61 60</h2>
-    <h2 class="text-heading-small text-text-primary">info@twentyfour.dk</h2>
-  </section>
-
-  <section class="col-start-1 col-span-4 row-start-5 lg:col-span-12 pb-6 lg:pb-28 z-10 md:flex md:flex-row justify-between">
-    <article class="pb-6 md:pb-0 gap-4">
-      <Icon name="butterfly" class="text-text-primary" />
-      <ul>
-        <li><p class="text-text-secondary">CVR. nr. 33757883</p></li>
-        <li><p class="text-text-secondary">Center Blvd. 5, indgang 7, 2300 København S</p></li>
-      </ul>
-    </article>
-    <article class="gap-4">
-      <ul>
-        <li>
-          <Link href="https://tailwindcss.com/docs/theme#theme-variable-namespaces" variant="LinkPrimary" target="_blank">Cookiepolitik</Link>
-        </li>
-        <li><Link href="" variant="LinkPrimary" target="_blank">Linkedin</Link></li>
-      </ul>
-    </article>
-  </section>
-
-  <div class="col-start-2 col-span-1 row-start-1 lg:col-start-4"><Icon name="fan" class="w-graphic-medium h-graphic-medium" /></div>
-  <div class="col-start-1 row-start-4 row-span-1 lg:place-self-end absolute left-[-3vw]"><Icon name="flower" class="w-graphic-medium h-graphic-medium" /></div>
-  <div class="col-start-3 col-span-1 row-start-4 row-span-1 lg:col-start-10 lg:row-start-4 place-self-center absolute"><Icon name="butterfly" class="w-graphic-small h-graphic-small" /></div>
-  <div class="col-start-4 row-start-4 row-span-1 lg:col-start-12 lg:row-start-4 lg:row-span-2 place-self-end lg:place-self-start absolute"><Icon name="square" class="w-graphic-large h-graphic-large" /></div>
 </footer> -->
