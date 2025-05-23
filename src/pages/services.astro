@@ -8,8 +8,8 @@ import SectionCases from "../components/organisms/SectionCases.astro";
 
 <MainLayout title="Services | Twentyfour">
   <section id="hero"><Hero title="Services" text="Vi skaber skræddersyede digitale løsninger, der passer til dine behov. Med over 10 års erfaring og et tværfagligt team, der kombinerer teknologi, design og problemløsning, hjælper vi dig med at udvikle løsninger, der skaber værdi for både din forretning og brugerne. Vi tilbyder full-service løsninger, fra idé til implementering." /></section>
-  <section id="services">
-    <ul class="grid md:grid-cols-4 gap-5">
+  <section id="services" class="py-32">
+    <ul class="grid lg:grid-cols-4 gap-5">
       <CardServices text="Vores mål er at gøre komplekse ideer letforståelige og skabe design, der ikke kun er æstetisk tiltalende, men også funktionelt stærke." />
       <CardServices text="Vi ved, at integration er tricky og tidskrævende. Derfor bygger vi solide integrationer, der er både pålidelige og effektive – så dine systemer spiller sammen, uanset om de er nye eller allerede i drift." />
       <CardServices text="Gennem webudvikling kan vi hjælpe dig med at bygge selve det digitale system. Vi udvikler og transformerer forretningsidéer, planer og virksomhedskoncepter til tilpassede og skræddersyede digitale løsninger." />
@@ -23,5 +23,5 @@ import SectionCases from "../components/organisms/SectionCases.astro";
       <ScrollingContainer />
     </article>
   </section>
-  <section><SectionCases /></section>
+  <section class="py-32"><SectionCases /></section>
 </MainLayout>
