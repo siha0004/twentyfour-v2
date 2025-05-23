@@ -1,0 +1,29 @@
+---
+import { Icon } from "astro-icon/components";
+
+const { id, icon, variant = "primary", size = "large", hide = "false" } = Astro.props;
+let buttonStyling;
+
+const variantClasses = {
+  primary: "text-button-primary-text bg-button-primary-background hover:bg-button-primary-background-hover active:bg-button-primary-background-pressed focus:outline-offset-4",
+  secondary: "text-button-secondary-text bg-button-secondary-background border-button-secondary-border border-1 hover:bg-button-secondary-background-hover active:bg-button-secondary-background-pressed focus:outline-offset-4",
+};
+
+const sizeClasses = {
+  base: "px-5 py-2",
+  large: "px-8 py-3",
+};
+
+if (hide === "mobile") {
+  buttonStyling = "hidden md:inline-flex items-center gap-4 rounded-full text-body-base";
+} else if (hide === "desktop") {
+  buttonStyling = "inline-flex  md:hidden items-center gap-4 rounded-full text-body-base";
+} else {
+  buttonStyling = "inline-flex items-center gap-4 rounded-full text-body-base";
+}
+---
+
+<button id={id} class:list={[buttonStyling, variantClasses[variant], sizeClasses[size]]}>
+  <slot />
+  {icon && <Icon name={icon} class="text-current" />}
+</button>
