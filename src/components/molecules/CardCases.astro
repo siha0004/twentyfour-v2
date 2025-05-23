@@ -1,8 +1,6 @@
 ---
 import { Image } from "astro:assets";
 import type { ImageMetadata } from "astro";
-import img from "../../assets/images/kirk/thumbnail_image_kirk.jpg";
-
 const { data, variant = "image" } = Astro.props;
 
 const blurStyle = "col-start-1 row-start-1 backdrop-blur-xs rounded-small";
@@ -24,12 +22,12 @@ console.log("img:", data.img);
   <article>
     <header class="grid grid-cols-1">
       <div class="aspect-square col-start-1 row-start-1 col-span-1 rounded-small">
-        <Image src={img} alt="Hejsa" class="object-cover aspect-square rounded-small" />
+        <!-- <Image src={img} alt="Hejsa" class="object-cover aspect-square rounded-small" /> -->
         <!-- <Image src={images[data.img]()} alt="Hejsa" class="object-cover aspect-square" /> -->
       </div>
       <div class:list={[blurStyle, variantClass]}></div>
       <div class:list={[videoStyle, variantClass]}>
-        <Image src={img} alt="Hejsa" class="object-cover rounded-small" />
+        <!-- <Image src={img} alt="Hejsa" class="object-cover rounded-small" /> -->
       </div>
     </header>
     <footer class="grid gap-1 mt-4">
