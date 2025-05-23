@@ -1,24 +1,29 @@
 ---
+import MainLayout from "../layouts/MainLayout.astro";
+
 import ClientLogoWrapper from "../components/organisms/ClientLogoWrapper.astro";
+import Link from "../components/atoms/Link.astro";
 import CardServices from "../components/molecules/CardServices.astro";
 import IndexHero from "../components/organisms/IndexHero.astro";
 import SectionCases from "../components/organisms/SectionCases.astro";
-import MainLayout from "../layouts/MainLayout.astro";
 import AboutGallery from "../components/organisms/AboutGallery.astro";
 ---
 
 <MainLayout>
-  <section id="hero" class="">
+  <section id="hero" class="py-8 lg:pb-32">
     <IndexHero />
-    <video src="https://lmssxxkhwlvcavzlaamg.supabase.co/storage/v1/object/public/video/hero/showcase.mp4" muted controls loop></video>
+    <video muted controls loop class="rounded-small w-full h-auto" src="https://lmssxxkhwlvcavzlaamg.supabase.co/storage/v1/object/public/video/hero/showcase.mp4"></video>
   </section>
-  <section id="cases">
+
+  <section id="cases" class="py-8 lg:py-32">
     <SectionCases />
   </section>
-  <section id="services" class="py-32 grid grid-cols-[4fr_8fr]">
-    <article class="">
-      <h1 class="text-heading-tagline pb-2">Services</h1>
-      <h2 class="text-heading-small pb-10">Skræddersyede digitale løsninger til dine behov</h2>
+
+  <section id="services" class="py-8 lg:py-32 grid lg:grid-cols-[4fr_8fr] lg:gap-20">
+    <article class="pb-8">
+      <h1 class="text-heading-tagline pb-2 text-text-secondary">Services</h1>
+      <h2 class="text-heading-small pb-6 lg:pb-10">Én partner til hele rejsen – fra idé til design, udvikling, drift og skalering</h2>
+      <Link href="/services" variant="ButtonSecondary" size="large" ikon="ButtonSecondary">Alle services</Link>
     </article>
     <ul class="grid md:grid-cols-2 gap-5">
       <CardServices text="Vores mål er at gøre komplekse ideer letforståelige og skabe design, der ikke kun er æstetisk tiltalende, men også funktionelt stærke." />
@@ -27,11 +32,14 @@ import AboutGallery from "../components/organisms/AboutGallery.astro";
       <CardServices text="Vi holder øje med dine løsninger, før fejlene opstår – med løbende opdateringer, overvågning og et nørdet fokus på stabil og sikker drift." />
     </ul>
   </section>
-  <section id="om"><AboutGallery /></section>
-  <section class="full-bleed overflow-hidden">
-    <article class="">
-      <h1 class="text-heading-tagline pb-2">Er du nysgerrig efter mere?</h1>
-      <h2 class="text-heading-small pb-10">Dyk ned i to udvalgte cases – og har du lyst til endnu mere, kan du altid gå på opdagelse i hele vores case-arkiv.</h2>
-    </article><ClientLogoWrapper />
+
+  <section id="om" class="py-8 lg:py-32"><AboutGallery /></section>
+
+  <section class="full-bleed overflow-hidden py-8 lg:py-32">
+    <article class="pb-8 lg:pb-10">
+      <h1 class="text-heading-tagline pb-2 text-text-secondary">Vores kunder</h1>
+      <h2 class="text-heading-small">Vi arbejder med både små og store virksomheder - <br /> Her er et lille udpluk fra de sidste 10 år.</h2>
+    </article>
+    <ClientLogoWrapper />
   </section>
 </MainLayout>
