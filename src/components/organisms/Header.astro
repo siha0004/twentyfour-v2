@@ -1,0 +1,122 @@
+---
+import { Icon } from "astro-icon/components";
+import Navlink from "../atoms/Navlink.astro";
+import Button from "../atoms/Button.astro";
+import NavlinkDropdown from "../molecules/NavlinkDropdown.astro";
+import NavMobile from "../molecules/NavMobile.astro";
+---
+
+<header class="fixed w-full flex items-center justify-between bg-background-glass backdrop-blur-sm border-b border-b-border-primary py-4 px-[max(1rem,_50%_-_var(--content-width)_/_2)] z-30">
+  <nav class="flex gap-4 items-center">
+    <a href="/" class="text-body-xlarge flex items-center"><Icon name="wordmark" class="text-body-xlarge hidden sm:block" /><Icon name="logomark" class="text-heading-large" /></a>
+    <ul class="hidden md:flex gap-6 md:items-center">
+      <Navlink href="/cases" variant="MainPage">Cases</Navlink>
+      <NavlinkDropdown label="Service" variant="services" />
+      <Navlink href="/build" variant="MainPage">Blog</Navlink>
+      <NavlinkDropdown label="Om Os" variant="about" />
+    </ul>
+  </nav>
+
+  <div id="green" class="flex flex-col items-end">
+    <div id="yellow" class="flex items-center gap-4">
+      <Button size="base" id="openModalBtnDesk" hide="mobile">Kontakt os</Button>
+      <div class="relative inline-block group">
+        <select class="appearance-none px-4 py-2 pr-10 focus:outline-none focus:ring-2 focus:ring-text-primary focus:rounded-small">
+          <option value="en">EN</option>
+          <option value="da" selected>DA</option>
+        </select>
+
+        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 transition-transform duration-200 group-focus-within:rotate-180">
+          <Icon name="chevron-down" />
+        </div>
+      </div>
+      <button id="burger" class="md:hidden transition-transform rotate-180">
+        <Icon name="fan" />
+      </button>
+    </div>
+  </div>
+</header>
+<NavMobile />
+
+<script>
+  // BURGER MENU
+  const burger = document.querySelector("#burger");
+  const navMobile = document.querySelector("#navMobile");
+
+  let burgerIsOpen = false;
+
+  burger?.addEventListener("click", () => {
+    burgerIsOpen = !burgerIsOpen;
+    navMobile?.classList.toggle("translate-x-full");
+    burger?.classList.toggle("rotate-180");
+  });
+
+  // OVERLAY SCRIPT MOBILE
+  const openModalMob = document.querySelector("#openModalBtnMob");
+  const modalMob = document.getElementById("contactModalMob");
+  const openFormMob = document.querySelector("#openFormBtn");
+  const closeModal = document.getElementById("closeModalBtn");
+  const btnContainer = document.querySelector("#openFormBtnContainer");
+  const info = document.querySelector("#contactInformation");
+  const form = document.querySelector("#messageForm");
+
+  let formIsOpen = false;
+
+  openModalMob?.addEventListener("click", () => {
+    // console.log("open mobile click");
+    modalMob?.classList.remove("hidden");
+    modalMob?.classList.add("grid");
+    form?.classList.add("hidden");
+    formIsOpen = false;
+
+    // Lukker burgermenu
+    burgerIsOpen = !burgerIsOpen;
+    navMobile?.classList.toggle("translate-x-full");
+    burger?.classList.toggle("rotate-180");
+  });
+
+  openFormMob?.addEventListener("click", () => {
+    // console.log("open form mobile click");
+    formIsOpen = true;
+    btnContainer?.classList.add("hidden");
+    form?.classList.remove("hidden");
+    form?.classList.add("grid");
+    info?.classList.add("hidden");
+  });
+
+  closeModal?.addEventListener("click", () => {
+    if (formIsOpen) {
+      form?.classList.remove("grid");
+      form?.classList.add("hidden");
+      info?.classList.remove("hidden");
+      btnContainer?.classList.remove("hidden");
+    }
+    modalMob?.classList.remove("grid");
+    modalMob?.classList.add("hidden");
+    formIsOpen = false;
+  });
+
+  // OVERLAY SCRIPT DESKTOP
+  const openButtonDesk = document.querySelector("#openModalBtnDesk");
+  const modalDesk = document.getElementById("contactModalDesk");
+  const closeBtnDesk = document.getElementById("closeModalBtnDesk");
+
+  openButtonDesk?.addEventListener("click", () => {
+    // console.log("open Desktop click");
+    modalDesk?.classList.remove("hidden");
+    modalDesk?.classList.add("grid");
+    console.log("formIsOpen:", formIsOpen);
+  });
+
+  closeBtnDesk?.addEventListener("click", () => {
+    // console.log("close Desktop click");
+    modalDesk?.classList.add("hidden");
+  });
+
+  modalDesk?.addEventListener("click", (e) => {
+    // console.log("close by click outside");
+    if (e.target === modalDesk) {
+      modalDesk.classList.add("hidden");
+    }
+  });
+</script>

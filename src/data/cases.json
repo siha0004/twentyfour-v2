@@ -1,0 +1,5 @@
+[
+  { "company": "Kirk Kapital", "services": ["design", "webudvikling"], "link": "kirkkapital" },
+  { "company": "Mond", "services": ["intergration", "design"], "link": "mond", "thumbnail": "image" },
+  { "company": "Vestas", "services": ["webudvikling", "intergration", "vedligehold"], "link": "vestas", "thumbnail": "video" }
+]

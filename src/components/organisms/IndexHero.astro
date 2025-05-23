@@ -1,0 +1,26 @@
+---
+import Link from "../atoms/Link.astro";
+import { Icon } from "astro-icon/components";
+---
+
+<section class="grid grid-cols-4 lg:grid-cols-12 grid-rows-6 lg:h-[90vh] md:min-h-[600px] md:max-h-[1000px] gap-4 p-4">
+  <article class="grid grid-cols-[subgrid] grid-rows-[subgrid] col-start-1 col-span-4 lg:col-span-9 row-start-3 row-span-2">
+    <h1 class="contents text-heading-huge">
+      <span class="col-start-1 col-span-2 lg:col-span-6 row-start-1 row-span-1 lg:place-self-center">Digitalt</span>
+      <span class="col-start-2 col-span-2 lg:col-start-4 lg:col-span-6 row-start-2 row-span-1">Bureau</span>
+    </h1>
+    <p class="text-body-base col-start-3 lg:col-start-7 col-span-2 md:col-span-3 row-start-1 flex flex-col self-center ml-5">
+      <span class="flex items-center gap-2">
+        <Icon name="butterfly" role="img" aria-label="Twentyfour" />
+        har fokus på løsninger,
+      </span>
+      <span>der passer til dig</span>
+    </p>
+  </article>
+
+  <div class="col-start-1 row-start-1 row-span-1 lg:col-span-2"><Icon name="ring" class="w-graphic-medium h-graphic-medium" /></div>
+  <div class="col-start-3 lg:col-start-10 row-start-1 place-content-end"><Icon name="flower" class="w-graphic-small h-graphic-small" /></div>
+  <div class="col-start-4 lg:col-start-11 col-span-2 row-start-2 row-span-2"><Icon name="butterfly" class="w-graphic-large h-graphic-large" /></div>
+  <div class="col-start-1 row-start-5 lg:col-start-2 lg:col-span-2 lg:row-start-5 lg:row-span-2"><Icon name="square" class="w-graphic-medium h-graphic-medium" /></div>
+  <div class="col-start-3 col-span-2 row-start-6 lg:col-start-11 lg:row-start-7 place-self-center"><Link href="" variant="ButtonPrimary" target="_blank">Kontakt os</Link></div>
+</section>

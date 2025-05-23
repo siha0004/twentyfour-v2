@@ -1,0 +1,38 @@
+---
+import { Image } from "astro:assets";
+
+import img from "../assets/about/stairs.webp";
+const { data, variant = "image" } = Astro.props;
+
+const blurStyle = "col-start-1 row-start-1 backdrop-blur-sm";
+const videoStyle = "bg-brand-lime aspect-video mx-[5%] self-center col-start-1 row-start-1 z-10";
+
+let variantClass = "hidden";
+
+if (variant === "video") {
+  variantClass = "block";
+}
+---
+
+<li class="grid content-start relative">
+  <article>
+    <!-- <Image src={img} alt="Hejsa" /> -->
+    <header class="grid grid-cols-1">
+      <div class="bg-brand-raspberry aspect-square col-start-1 row-start-1 col-span-1"></div>
+      <div class:list={[blurStyle, variantClass]}></div>
+      <div class:list={[videoStyle, variantClass]}></div>
+    </header>
+    <footer class="grid gap-1 mt-4">
+      <h3 class="text-heading-small">
+        <a href={`/${data.link}`} class="after:content-[''] after:absolute after:inset-0"> {data.company}</a>
+      </h3>
+      <ul class="flex gap-2 text-body-tiny">
+        {
+          data.services.map((service: JSON) => {
+            return <li class="capitalize">{service}</li>;
+          })
+        }
+      </ul>
+    </footer>
+  </article>
+</li>

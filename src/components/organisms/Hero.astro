@@ -1,0 +1,19 @@
+---
+import { Icon } from "astro-icon/components";
+
+const { title, text, variant } = Astro.props;
+---
+
+<section class="grid grid-cols-4 lg:grid-cols-12 lg:grid-rows-4 relative auto-cols-auto auto-rows-auto">
+  <article class="col-span-4 row-span-2 lg:col-start-1 lg:col-span-12 lg:row-start-1 lg:row-span-4 py-6 lg:py-28 z-10">
+    <h1 class="text-heading-xlarge pb-3 lg:pb-5">{title}</h1>
+    <p class="text-body-large text-text-secondary lg:max-w-xl">{text}</p>
+  </article>
+ { variant == "default" &&
+ ( 
+     <div class="col-start-3 lg:col-start-9 lg:row-start-3"><Icon name="butterfly" class="w-graphic-small h-graphic-small" /></div>
+      <div class="col-start-4 lg:col-start-11 lg:row-start-3 lg:row-end-6"><Icon name="flower" class="w-graphic-large h-graphic-large" /></div>
+      <div class="col-start-3 lg:col-start-5 lg:row-start-1 lg:row-span-2 absolute top-[-5vh]"><Icon name="fan" class="w-graphic-medium h-graphic-medium" /></div>
+      <div class="row-start-3 lg:col-start-1 lg:row-start-4 absolute left-[-5vw]"><Icon name="square" class="w-graphic-medium h-graphic-medium" /></div>
+ )}
+</section>

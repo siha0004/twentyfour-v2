@@ -1,0 +1,20 @@
+---
+import cases from "../../data/cases.json";
+import CardCases from "../molecules/CardCases.astro";
+import Link from "../atoms/Link.astro";
+import type Cases from "../../pages/cases.astro";
+---
+
+<section>
+  <article class="flex flex-wrap justify-between items-center gap-6 pb-6">
+    <h1 class="text-heading-large">Cases</h1>
+    <Link href="" variant="ButtonSecondary" size="large" ikon="ButtonSecondary">Se alle cases</Link>
+  </article>
+  <ul class="grid grid-cols-[1fr_2fr] lg:grid-cols-[3fr_5fr_4fr] gap-6">
+    {
+      cases.map((oneCase) => {
+        return <CardCases data={oneCase} size="medium" />;
+      })
+    }
+  </ul>
+</section>

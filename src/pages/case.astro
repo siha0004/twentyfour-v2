@@ -1,0 +1,27 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+
+import cases from "../data/cases.json";
+import CardCases from "../components/molecules/CardCases.astro";
+import Link from "../components/atoms/Link.astro";
+---
+
+<MainLayout title="Services | Twentyfour">
+  <h1 class="heading-xlarge">En Case</h1>
+  <section class="grid lg:grid-cols-[5fr_7fr] gap-6">
+    <article class="place-content-center">
+      <h1 class="text-heading-tagline pb-2">Er du nysgerrig efter mere?</h1>
+      <h2 class="text-heading-small pb-10">Dyk ned i to udvalgte cases – og har du lyst til endnu mere, kan du altid gå på opdagelse i hele vores case-arkiv.</h2>
+      <Link href="" variant="ButtonSecondary" size="large" ikon="ButtonSecondary">Se alle cases</Link>
+    </article>
+    <ul class="grid grid-cols-[4fr_3fr] gap-6">
+      {
+        cases.map((oneCase, i) => {
+          if (i < 2) {
+            return <CardCases data={oneCase} size="medium" />;
+          }
+        })
+      }
+    </ul>
+  </section>
+</MainLayout>
