@@ -6,11 +6,45 @@ import CardCases from "../components/molecules/CardCases.astro";
 import Link from "../components/atoms/Link.astro";
 import WrapperCaseImage from "../components/atoms/WrapperCaseImage.astro";
 import CaseGallery from "../components/organisms/CaseGallery.astro";
+import { Image } from "astro:assets";
+
+import img from "../assets/about/office.webp";
 ---
 
 <MainLayout title="Services | Twentyfour">
-  <h1 class="heading-xlarge">En Case</h1>
-  <section class="section-main">Hero</section>
+  <section class="section-main grid gap-5 md:gap-28">
+    <header>
+      <h1 class="heading-xlarge">Nordhus</h1>
+      <Image src={img} alt="Hejsa" class="rounded-small aspect-video object-cover" />
+    </header>
+    <section class="grid gap-10 md:grid-cols-[1fr_2fr] lg:grid-cols-2">
+      <div class="grid gap-8 items-start justify-items-start">
+        <Link href="https://nordhus.dk/" target="_blank" variant="ButtonSecondary">Se løsningen</Link>
+        <div class="grid grid-cols-2 md:grid-cols-1 gap-4">
+          <div>
+            <h3 class="font-medium mb-2">År</h3>
+            <p class="mb-5">2024 - nu</p>
+          </div>
+
+          <div>
+            <h3 class="font-medium">Services</h3>
+            <ul>
+              <li><Link href="/build" variant="LinkPrimary">Design</Link></li>
+              <li><Link href="/build" variant="LinkPrimary">Webudvikling</Link></li>
+              <li><Link href="/build" variant="LinkPrimary">Intergration</Link></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <article>
+        <h2 class="heading-large mb-6">Et digitalt samlingspunkt for kultur og fællesskab</h2>
+        <p class="text-text-secondary">
+          Nordhus CPH – Et digitalt samlingspunkt for kultur og fællesskab Nordhus CPH er et nyt kultur- og fællesskabshus i Nordhavn med en stærk ambition: at skabe et levende og inkluderende mødested drevet af unge kulturskabere. På mere end 400 m² danner huset ramme om events, koncerter, kreative
+          workshops – og endda et podcaststudie. For at understøtte den vision har vi skabt en digital platform, der afspejler Nordhus’ energi, initiativ og fællesskabsånd.
+        </p>
+      </article>
+    </section>
+  </section>
 
   <section class="section-main grid md:grid-cols-2 gap-6 md:gap-12">
     <article class="">
@@ -48,7 +82,7 @@ import CaseGallery from "../components/organisms/CaseGallery.astro";
     </article>
   </section>
 
-  <CaseGallery />
+  <CaseGallery grid="3" />
 
   <section class="section-main grid lg:grid-cols-[5fr_7fr] gap-6">
     <article class="">
