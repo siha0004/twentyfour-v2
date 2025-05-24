@@ -1,12 +1,13 @@
 ---
 import Link from "../atoms/Link.astro";
+import Button from "../atoms/Button.astro";
 import { Icon } from "astro-icon/components";
 ---
 
 <footer class="grid grid-cols-4 lg:grid-cols-12 lg:grid-rows-7 px-[max(1rem,_50%_-_var(--content-width)_/_2)] overflow-hidden py-32 relative lg:h-[90vh] lg:min-h-[800px] lg:max-h-[1000px] lg:gap-6">
   <article class="pb-24 col-start-1 row-start-2 lg:row-span-3 lg:row-start-2 z-10">
     <h1 class="heading-xlarge text-text-primary pb-5">Skal vi tage en snak<br />om dit næste projekt?</h1>
-    <Link href="" variant="ButtonPrimary" target="_blank">Kontakt os</Link>
+    <Button size="base" id="openModalBtnDesk">Kontakt os</Button>
   </article>
 
   <section class="grid gap-7 col-start-1 row-start-7 row-span-1 z-10">
