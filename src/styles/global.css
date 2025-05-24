@@ -166,6 +166,10 @@
     @apply text-heading-xsmall font-medium text-text-secondary;
   }
 
+  .section-main {
+    @apply py-32 border-b border-b-border-secondary;
+  }
+
   body {
     --content-width: 1400px;
 
@@ -199,6 +203,11 @@
     > * {
       grid-column: content;
     }
+  }
+
+  p {
+    max-width: 65ch;
+    text-wrap: pretty;
   }
 }
 

@@ -4,12 +4,88 @@ import MainLayout from "../layouts/MainLayout.astro";
 import cases from "../data/cases.json";
 import CardCases from "../components/molecules/CardCases.astro";
 import Link from "../components/atoms/Link.astro";
+import WrapperCaseImage from "../components/atoms/WrapperCaseImage.astro";
+import CaseGallery from "../components/organisms/CaseGallery.astro";
+import { Image } from "astro:assets";
+
+import img from "../assets/about/office.webp";
 ---
 
 <MainLayout title="Services | Twentyfour">
-  <h1 class="heading-xlarge">En Case</h1>
-  <section class="grid lg:grid-cols-[5fr_7fr] gap-6">
-    <article class="place-content-center">
+  <section class="section-main grid gap-5 md:gap-28">
+    <header>
+      <h1 class="heading-xlarge">Nordhus</h1>
+      <Image src={img} alt="Hejsa" class="rounded-small aspect-video object-cover" />
+    </header>
+    <section class="grid gap-10 md:grid-cols-[1fr_2fr] lg:grid-cols-2">
+      <div class="grid gap-8 items-start justify-items-start">
+        <Link href="https://nordhus.dk/" target="_blank" variant="ButtonSecondary">Se løsningen</Link>
+        <div class="grid grid-cols-2 md:grid-cols-1 gap-4">
+          <div>
+            <h3 class="font-medium mb-2">År</h3>
+            <p class="mb-5">2024 - nu</p>
+          </div>
+
+          <div>
+            <h3 class="font-medium">Services</h3>
+            <ul>
+              <li><Link href="/build" variant="LinkPrimary">Design</Link></li>
+              <li><Link href="/build" variant="LinkPrimary">Webudvikling</Link></li>
+              <li><Link href="/build" variant="LinkPrimary">Intergration</Link></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <article>
+        <h2 class="heading-large mb-6">Et digitalt samlingspunkt for kultur og fællesskab</h2>
+        <p class="text-text-secondary">
+          Nordhus CPH – Et digitalt samlingspunkt for kultur og fællesskab Nordhus CPH er et nyt kultur- og fællesskabshus i Nordhavn med en stærk ambition: at skabe et levende og inkluderende mødested drevet af unge kulturskabere. På mere end 400 m² danner huset ramme om events, koncerter, kreative
+          workshops – og endda et podcaststudie. For at understøtte den vision har vi skabt en digital platform, der afspejler Nordhus’ energi, initiativ og fællesskabsånd.
+        </p>
+      </article>
+    </section>
+  </section>
+
+  <section class="section-main grid md:grid-cols-2 gap-6 md:gap-12">
+    <article class="">
+      <h2 class="heading-tagline">Resultatet</h2>
+      <p class="heading-small mb-3">Et design skabt til fællesskab</p>
+      <p class="text-text-secondary">
+        Designet kombinerer en levende visuel identitet med intuitive brugerrejser, som gør det nemt for besøgende at udforske aktiviteter, booke lokaler og engagere sig i husets fællesskab. Løsningen er skabt med samme åbenhed og energi, som kendetegner Nordhus CPH i den fysiske verden.
+      </p>
+    </article>
+    <div class="grid gap-3 md:gap-8 @container">
+      <WrapperCaseImage hexcolor="bg-[#EDEBDC]" />
+      <WrapperCaseImage hexcolor="bg-[#4B4B64]" />
+    </div>
+  </section>
+
+  <section class="section-main grid place-content-center">
+    <div class="max-w-3xl grid gap-4">
+      <p class="heading-medium">“Man mærker med det samme, at hjemmesiden er lavet med forståelse for, hvem vi er, og hvad vi gerne vil skabe”</p>
+      <p class="flex gap-2 before:content-['-'] text-text-secondary text-body-large">Marianne Holst, daglig leder</p>
+    </div>
+  </section>
+
+  <section class="section-main grid md:grid-cols-2 gap-6 md:gap-12">
+    <div class="grid gap-3 md:gap-8 @container">
+      <WrapperCaseImage hexcolor="bg-[#EDEBDC]" />
+      <WrapperCaseImage hexcolor="bg-[#4B4B64]" />
+    </div>
+    <article class="">
+      <h2 class="heading-tagline">Proces</h2>
+      <p class="heading-small mb-3">Fra fælles ambition til færdig løsning</p>
+      <p class="text-text-secondary">
+        Samarbejdet med Nordhus CPH tog udgangspunkt i en fælles ambition om at skabe en platform, der både understøtter og udstråler fællesskab, energi og kreativitet. Efter en fælles opstart med workshop og wireframing, gik vi i gang med at udvikle informationsarkitektur, design og funktioner i
+        parallelle spor. Gennem løbende dialog og ugentlige statusmøder arbejdede vi tæt sammen med teamet bag Nordhus for at sikre, at både funktion og udtryk stemte overens med husets værdier og behov.
+      </p>
+    </article>
+  </section>
+
+  <CaseGallery grid="3" />
+
+  <section class="section-main grid lg:grid-cols-[5fr_7fr] gap-6">
+    <article class="">
       <h1 class="text-heading-tagline pb-2">Er du nysgerrig efter mere?</h1>
       <h2 class="text-heading-small pb-10">Dyk ned i to udvalgte cases – og har du lyst til endnu mere, kan du altid gå på opdagelse i hele vores case-arkiv.</h2>
       <Link href="" variant="ButtonSecondary" size="large" ikon="ButtonSecondary">Se alle cases</Link>
@@ -18,7 +94,7 @@ import Link from "../components/atoms/Link.astro";
       {
         cases.map((oneCase, i) => {
           if (i < 2) {
-            return <CardCases data={oneCase} size="medium" />;
+            return <CardCases data={oneCase} size="medium" variant={oneCase.thumbnail} />;
           }
         })
       }
