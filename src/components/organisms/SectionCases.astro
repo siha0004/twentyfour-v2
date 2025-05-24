@@ -12,8 +12,10 @@ import type Cases from "../../pages/cases.astro";
   </article>
   <ul class="grid grid-cols-[1fr_2fr] lg:grid-cols-[3fr_5fr_4fr] gap-6">
     {
-      cases.map((oneCase) => {
-        return <CardCases data={oneCase} size="medium" />;
+      cases.map((oneCase, i) => {
+        if (i < 3) {
+          return <CardCases data={oneCase} size="medium" />;
+        }
       })
     }
   </ul>
