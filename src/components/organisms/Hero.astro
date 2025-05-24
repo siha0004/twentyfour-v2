@@ -4,16 +4,16 @@ import { Icon } from "astro-icon/components";
 const { title, text, variant } = Astro.props;
 ---
 
-<section class="grid grid-cols-4 lg:grid-cols-12 grid-rows-[repeat(5,_auto)] lg:max-h-[525px] gap-6 lg:gap-x-6">
+<section class="grid grid-cols-4 lg:grid-cols-12 grid-rows-[repeat(4,_auto)] lg:max-h-[525px]  gap-6 lg:gap-x-6">
   <article class="col-start-1 col-span-4 row-start-2 row-span-2 lg:col-span-6 lg:row-span-3">
     <h1 class="text-heading-xlarge pb-3 lg:pb-5">{title}</h1>
     <p class="text-body-large text-text-secondary lg:max-w-2xl">{text}</p>
   </article>
  { variant == "default" &&
  ( 
-     <div class=" col-start-3 row-start-4 lg:col-start-9 lg:row-start-2"><Icon name="butterfly" class="text-graphic-small" /></div>
-      <div class=" col-start-4 row-start-5 lg:row-start-3 lg:col-start-11  lg:col-span-2"><Icon name="flower" class="text-graphic-large" /></div>
-      <div class=" col-start-3 row-start-1 "><Icon name="fan" class="text-graphic-medium" /></div>
+     <div class="bg-border-accent col-start-3 row-start-4 lg:col-start-9 lg:row-start-2"><Icon name="butterfly" class="text-graphic-small" /></div>
+      <div class="bg-border-accent col-start-4 row-start-4 lg:row-start-3 lg:col-start-11  lg:col-span-2"><Icon name="flower" class="text-graphic-large" /></div>
+      <div class="bg-border-accent col-start-3 row-start-1 "><Icon name="fan" class="text-graphic-medium" /></div>
       
  )}
 </section>
