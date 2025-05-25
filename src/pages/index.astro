@@ -7,6 +7,19 @@ import CardServices from "../components/molecules/CardServices.astro";
 import IndexHero from "../components/organisms/IndexHero.astro";
 import SectionCases from "../components/organisms/SectionCases.astro";
 import AboutGallery from "../components/organisms/AboutGallery.astro";
+
+// Fetcher data fra databasen og ligger i konstanten 'data'
+const key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imxtc3N4eGtod2x2Y2F2emxhYW1nIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc3NDcyNTQsImV4cCI6MjA2MzMyMzI1NH0.9aAcHyVj06h_jagTgEHjwZ3AYPGJtTOOpJxhTslbFIU";
+const url = "https://lmssxxkhwlvcavzlaamg.supabase.co/rest/v1/twentyfour-cases";
+
+const caseData = await fetch(url, {
+  method: "GET",
+  headers: {
+    apikey: key,
+  },
+}).then((res) => res.json());
+
+console.log("Tester", caseData);
 ---
 
 <MainLayout>
@@ -16,7 +29,7 @@ import AboutGallery from "../components/organisms/AboutGallery.astro";
   </section>
 
   <section id="cases" class="py-8 lg:py-32">
-    <SectionCases />
+    <SectionCases data={caseData} />
   </section>
 
   <section id="services" class="py-8 lg:py-32 grid lg:grid-cols-[4fr_8fr] lg:gap-20">

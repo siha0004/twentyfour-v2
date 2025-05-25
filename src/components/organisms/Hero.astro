@@ -1,13 +1,15 @@
 ---
 import { Icon } from "astro-icon/components";
+import Link from "../atoms/Link.astro";
 
 const { title, text, variant } = Astro.props;
 ---
 
-<section class="grid grid-cols-4 lg:grid-cols-12 grid-rows-[repeat(4,_auto)] lg:max-h-[525px]  gap-6 lg:gap-x-6">
+<section class="section-main grid grid-cols-4 lg:grid-cols-12 grid-rows-[repeat(4,_auto)] lg:max-h-[525px]  gap-6 lg:gap-x-6">
   <article class="col-start-1 col-span-4 row-start-2 row-span-2 lg:col-span-6 lg:row-span-3">
     <h1 class="text-heading-xlarge pb-3 lg:pb-5">{title}</h1>
-    <p class="text-body-large text-text-secondary lg:max-w-2xl">{text}</p>
+    <p class="text-body-large text-text-secondary lg:max-w-2xl mb-8">{text}</p>
+    {variant === "build" && <Link variant="ButtonSecondary">Gå tilbage hvor du kom fra</Link> }
   </article>
  { variant == "default" &&
  ( 

@@ -6,6 +6,7 @@ import CaseMoreCases from "../../components/organisms/CaseMoreCases.astro";
 import CaseProcess from "../../components/organisms/CaseProcess.astro";
 import CaseResult from "../../components/organisms/CaseResult.astro";
 import CaseTestimonial from "../../components/organisms/CaseTestimonial.astro";
+import Hero from "../../components/organisms/Hero.astro";
 
 // Laver statiske stier til hvert element i databasen
 export async function getStaticPaths() {
@@ -37,10 +38,11 @@ const { name, link, year, services, intro_heading, intro_text, resultat_heading,
 ---
 
 <MainLayout title="Services | Twentyfour">
-  <CaseHero name={name} link={link} year={year} services={services} heading={intro_heading} text={intro_text} />
-  <CaseResult heading={resultat_heading} text={resultat_text} colorPri={brandcolor_primary} colorSec={brandcolor_secondary} />
+  {intro_heading && <CaseHero name={name} link={link} year={year} services={services} heading={intro_heading} text={intro_text} />}
+  {resultat_heading && <CaseResult heading={resultat_heading} text={resultat_text} colorPri={brandcolor_primary} colorSec={brandcolor_secondary} />}
   {quote && <CaseTestimonial quote={quote} by={quote_by} />}
-  {proces_heading && <CaseProcess heading={proces_heading} text={proces_text} colorPri={brandcolor_primary} colorSec={brandcolor_secondary} />}
-  <CaseGallery grid={grid} />
-  <CaseMoreCases />
+  {quote && <CaseProcess heading={proces_heading} text={proces_text} colorPri={brandcolor_primary} colorSec={brandcolor_secondary} />}
+  {grid && <CaseGallery grid={grid} />}
+  {intro_heading && <CaseMoreCases />}
+  {!intro_heading && <Hero variant="build" title="Der Bygges" text="Denne side er endnu ikke bygget færdig - men der arbejdes på sagen." />}
 </MainLayout>

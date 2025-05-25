@@ -2,7 +2,10 @@
 import cases from "../../data/cases.json";
 import CardCases from "../molecules/CardCases.astro";
 import Link from "../atoms/Link.astro";
-import type Cases from "../../pages/cases.astro";
+
+const { data } = Astro.props;
+
+console.log("HEJSE", data);
 ---
 
 <section>
@@ -12,9 +15,9 @@ import type Cases from "../../pages/cases.astro";
   </article>
   <ul class="grid grid-cols-[1fr_2fr] lg:grid-cols-[3fr_5fr_4fr] gap-6">
     {
-      cases.map((oneCase, i) => {
+      data.map((oneCase, i) => {
         if (i < 3) {
-          return <CardCases data={oneCase} size="medium" />;
+          return <CardCases data={oneCase} size="medium" variant={oneCase.thumbnail_type} />;
         }
       })
     }

@@ -3,7 +3,6 @@ import MainLayout from "../layouts/MainLayout.astro";
 import Hero from "../components/organisms/Hero.astro";
 import CardCases from "../components/molecules/CardCases.astro";
 
-import cases from "../data/cases.json";
 import Filter from "../components/atoms/Filter.astro";
 import { Icon } from "astro-icon/components";
 
@@ -38,7 +37,7 @@ console.log("Tester", caseData);
       </div>
     </header>
     <ul class="grid grid-cols-3 gap-x-5 gap-y-11 items-start">
-      {caseData.map((oneCase) => <CardCases filters={oneCase.services.join(",")} data={oneCase} />)}
+      {caseData.map((oneCase) => <CardCases filters={oneCase.services.join(",")} data={oneCase} variant={oneCase.thumbnail_type} />)}
       <!-- {cases.map((oneCase) => <CardCases filters={oneCase.services.join(",")} data={oneCase} variant={oneCase.thumbnail} />)} -->
     </ul>
     <footer class="grid place-content-center">
