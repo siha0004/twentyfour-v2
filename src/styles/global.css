@@ -58,7 +58,7 @@
   --radius-small: 0.25rem;
   --radius-medium: 1rem;
   --radius-large: 1.5rem;
-  --radius-full: 1.5rem;
+  --radius-full: 100rem;
 
   /* Text */
   /*Clamp generator: https://utopia.fyi/clamp/calculator?a=470,1400,14%E2%80%9416 */
@@ -102,7 +102,7 @@
   /* Background color */
   --color-background-primary: var(--color-cream-10);
   --color-background-secondary: var(--color-cream-20);
-  --color-background-glass: var(--color-licorice-20/50);
+  --color-background-glass: var(--color-cream-35);
   --color-background-succes: var(--color-green-10);
   --color-background-warning: var(--color-red-10);
 
@@ -164,6 +164,10 @@
   }
   .heading-tagline {
     @apply text-heading-xsmall font-medium text-text-secondary;
+  }
+
+  .glass {
+    @apply bg-background-glass/50 backdrop-blur-md;
   }
 
   .section-main {
