@@ -33,12 +33,12 @@ export async function getStaticPaths() {
 
 // Definere en prop, som dataen der er fetchet
 const { caseData } = Astro.props;
-const { name, link, year, services, intro_heading, intro_text, quote, quotee_by, grid } = caseData;
+const { name, link, year, services, intro_heading, intro_text, resultat_heading, resultat_text, brandcolor_primary, brandcolor_secondary, quote, quotee_by, grid } = caseData;
 ---
 
 <MainLayout title="Services | Twentyfour">
   <CaseHero name={name} link={link} year={year} services={services} heading={intro_heading} text={intro_text} />
-  <CaseResult />
+  <CaseResult heading={resultat_heading} text={resultat_text} colorPri={brandcolor_primary} colorSec={brandcolor_secondary} />
   <CaseTestimonial quote={quote} by={quotee_by} />
   <CaseProcess />
   <CaseGallery grid={grid} />
