@@ -4,9 +4,21 @@ import Hero from "../components/organisms/Hero.astro";
 import CardCases from "../components/molecules/CardCases.astro";
 
 import cases from "../data/cases.json";
-import AboutGallery from "../components/organisms/AboutGallery.astro";
 import Filter from "../components/atoms/Filter.astro";
 import { Icon } from "astro-icon/components";
+
+// Fetcher data fra databasen og ligger i konstanten 'data'
+const key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imxtc3N4eGtod2x2Y2F2emxhYW1nIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc3NDcyNTQsImV4cCI6MjA2MzMyMzI1NH0.9aAcHyVj06h_jagTgEHjwZ3AYPGJtTOOpJxhTslbFIU";
+const url = "https://lmssxxkhwlvcavzlaamg.supabase.co/rest/v1/twentyfour-cases";
+
+const caseData = await fetch(url, {
+  method: "GET",
+  headers: {
+    apikey: key,
+  },
+}).then((res) => res.json());
+
+console.log("Tester", caseData);
 ---
 
 <MainLayout title="Cases | Twentyfour">
@@ -26,7 +38,7 @@ import { Icon } from "astro-icon/components";
       </div>
     </header>
     <ul class="grid grid-cols-3 gap-x-5 gap-y-11 items-start">
-      {cases.map((oneCase) => <CardCases filters={oneCase.services.join(",")} data={oneCase} variant={oneCase.thumbnail} />)}
+      {caseData.map((oneCase) => <CardCases filters={oneCase.services.join(",")} data={oneCase} />)}
       <!-- {cases.map((oneCase) => <CardCases filters={oneCase.services.join(",")} data={oneCase} variant={oneCase.thumbnail} />)} -->
     </ul>
     <footer class="grid place-content-center">
@@ -80,39 +92,6 @@ import { Icon } from "astro-icon/components";
       clearButton.classList.add("opacity-50", "pointer-events-none");
     }
   }
-
-  // function updateView() {
-  //   const searchTerm = searchInput.value.trim().toLowerCase();
-
-  //   // Opdatere hvilke cards vises
-  //   cards.forEach((card) => {
-  //     const services = card.getAttribute("data-services").split(",");
-  //     const match = activeFilters.length === 0 || activeFilters.some((f) => services.includes(f));
-
-  //     if (match) {
-  //       card.classList.remove("hidden");
-  //     } else {
-  //       card.classList.add("hidden");
-  //     }
-  //   });
-
-  //   // Opdater knappernes aktive styling
-  //   filterButtons.forEach((button) => {
-  //     const filter = button.getAttribute("data-filter");
-  //     if (activeFilters.includes(filter)) {
-  //       button.classList.add("border-b-2");
-  //     } else {
-  //       button.classList.remove("border-b-2");
-  //     }
-  //   });
-
-  //   // Opdater "Ryd filtre"-knap
-  //   if (activeFilters.length > 0) {
-  //     clearButton.classList.remove("opacity-50", "pointer-events-none");
-  //   } else {
-  //     clearButton.classList.add("opacity-50", "pointer-events-none");
-  //   }
-  // }
 
   // Eventlistener som lytter på om der bliver trykket på et filter
   filterButtons.forEach((button) => {
