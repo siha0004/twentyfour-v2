@@ -213,6 +213,12 @@
     max-width: 65ch;
     text-wrap: pretty;
   }
+
+  input[type="search"]::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    appearance: none;
+    display: none;
+  }
 }
 
 /* Custom cursor */
@@ -221,13 +227,3 @@
     cursor: url("/CustomCursorCase.svg"), pointer;
   }
 }
-
-/* @layer utilities {
-  .flow-space {
-    > * + * {
-      margin-top: var(--flow-space, 1em);
-    }
-
-    
-  }
-} */
