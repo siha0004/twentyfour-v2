@@ -1,5 +1,5 @@
 ---
-const { name, link } = Astro.props;
+const { name, link, year, services, heading, text } = Astro.props;
 
 import { Image } from "astro:assets";
 
@@ -18,25 +18,30 @@ import Link from "../atoms/Link.astro";
       <div class="grid grid-cols-2 md:grid-cols-1 gap-4">
         <div>
           <h3 class="font-medium mb-2">År</h3>
-          <p class="mb-5">2024 - nu</p>
+          <p class="mb-5">{year}</p>
         </div>
 
         <div>
           <h3 class="font-medium">Services</h3>
           <ul>
-            <li><Link href="/build" variant="LinkPrimary">Design</Link></li>
-            <li><Link href="/build" variant="LinkPrimary">Webudvikling</Link></li>
-            <li><Link href="/build" variant="LinkPrimary">Intergration</Link></li>
+            {
+              services.map((service: JSON) => {
+                return (
+                  <li class="capitalize">
+                    <Link href="/build" variant="LinkPrimary">
+                      {service}
+                    </Link>
+                  </li>
+                );
+              })
+            }
           </ul>
         </div>
       </div>
     </div>
     <article>
-      <h2 class="heading-large mb-6">Et digitalt samlingspunkt for kultur og fællesskab</h2>
-      <p class="text-text-secondary">
-        Nordhus CPH – Et digitalt samlingspunkt for kultur og fællesskab Nordhus CPH er et nyt kultur- og fællesskabshus i Nordhavn med en stærk ambition: at skabe et levende og inkluderende mødested drevet af unge kulturskabere. På mere end 400 m² danner huset ramme om events, koncerter, kreative
-        workshops – og endda et podcaststudie. For at understøtte den vision har vi skabt en digital platform, der afspejler Nordhus’ energi, initiativ og fællesskabsånd.
-      </p>
+      <h2 class="heading-large mb-6">{heading}</h2>
+      <p class="text-text-secondary">{text}</p>
     </article>
   </section>
 </section>
