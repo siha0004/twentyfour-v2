@@ -13,11 +13,11 @@ import Filter from "../components/atoms/Filter.astro";
   <section class="py-32 grid gap-10">
     <header class="flex justify-between">
       <div id="filters" class="flex gap-4 py-2 px-8 bg-background-glass rounded-full border-2 border-border-primary">
-        <Filter filter="alle" />
         <Filter filter="design" />
         <Filter filter="webudvikling" />
         <Filter filter="integration" />
         <Filter filter="vedligeholdelse" />
+        <button data-clear class="capitalize cursor-pointer px-1 hover:border-b-2 hover:border-b-brand-raspberry border-b-brand-raspberry focus-visible:outline-1 focus-visible:rounded-small disabled:text-text-secondary">Ryd</button>
       </div>
       <p>Søgefunktion</p>
     </header>
@@ -32,27 +32,64 @@ import Filter from "../components/atoms/Filter.astro";
 </MainLayout>
 
 <script>
-  const buttons = document.querySelectorAll("#filters button");
+  const filterButtons = document.querySelectorAll("[data-filter]");
+  const clearButton = document.querySelector("[data-clear]");
   const cards = document.querySelectorAll(".case-card");
 
-  buttons.forEach((button) => {
+  let activeFilters = [];
+
+  function updateView() {
+    // Opdatere hvilke cards vises
+    cards.forEach((card) => {
+      const services = card.getAttribute("data-services").split(",");
+      const match = activeFilters.length === 0 || activeFilters.some((f) => services.includes(f));
+
+      if (match) {
+        card.classList.remove("hidden");
+      } else {
+        card.classList.add("hidden");
+      }
+    });
+
+    // Opdater knappernes aktive styling
+    filterButtons.forEach((button) => {
+      const filter = button.getAttribute("data-filter");
+      if (activeFilters.includes(filter)) {
+        button.classList.add("border-b-2");
+      } else {
+        button.classList.remove("border-b-2");
+      }
+    });
+
+    // Opdater "Ryd filtre"-knap
+    if (activeFilters.length > 0) {
+      clearButton.classList.remove("opacity-50", "pointer-events-none");
+    } else {
+      clearButton.classList.add("opacity-50", "pointer-events-none");
+    }
+  }
+
+  // Eventlistener som lytter på om der bliver trykket på et filter
+  filterButtons.forEach((button) => {
     button.addEventListener("click", () => {
       const filter = button.getAttribute("data-filter");
 
-      // --- Fjern "active" fra alle knapper
-      buttons.forEach((btn) => btn.classList.remove("border-b-2"));
+      if (activeFilters.includes(filter)) {
+        activeFilters = activeFilters.filter((f) => f !== filter);
+      } else {
+        activeFilters.push(filter);
+      }
 
-      // --- Tilføj "active" til den klik-kede knap
-      button.classList.add("border-b-2");
-
-      cards.forEach((card) => {
-        const services = card.getAttribute("data-services").split(",");
-        if (filter === "alle" || services.includes(filter)) {
-          card.classList.remove("hidden");
-        } else {
-          card.classList.add("hidden");
-        }
-      });
+      updateView();
     });
   });
+
+  // Eventlistener som lytter på om der bliver ryddet filtre
+  clearButton.addEventListener("click", () => {
+    activeFilters = [];
+    updateView();
+  });
+
+  // Initiel visning
+  updateView();
 </script>

@@ -1,5 +1,5 @@
 ---
-const { filter, label } = Astro.props;
+const { filter } = Astro.props;
 ---
 
-<button data-filter={filter} class="capitalize px-1 hover:border-b-2 hover:border-b-brand-raspberry border-b-brand-raspberry focus-visible:outline-1 focus-visible:rounded-small">{filter}</button>
+<button data-filter={filter} class="capitalize px-1 cursor-pointer hover:border-b-2 hover:border-b-brand-raspberry border-b-brand-raspberry focus-visible:outline-1 focus-visible:rounded-small">{filter}</button>
