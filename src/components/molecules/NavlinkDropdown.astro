@@ -12,10 +12,10 @@ const options = optionsMap[variant] || ["404"];
 ---
 
 <div class="relative" id={`${variant}-wrapper`}>
-  <Navlink href={variant}>{label}</Navlink>
+  <Navlink href=`/${variant}` variant="dropdown">{label}</Navlink>
 
   <!-- Dropdown shown on hover -->
-  <div id={`${variant}-dropdown`} class="absolute grid gap-4 p-5 mt-9 w-80 bg-background-primary/50 backdrop-blur-sm border border-border-primary rounded-small invisible transition duration-200 z-20">
+  <div id={`${variant}-dropdown`} class="absolute grid gap-4 p-5 mt-9 w-80 bg-background-secondary border border-border-primary rounded-small invisible transition duration-200 z-20">
     {
       options.map((option: object) => {
         return (
