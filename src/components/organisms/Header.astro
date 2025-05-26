@@ -10,10 +10,10 @@ import NavMobile from "../molecules/NavMobile.astro";
   <nav class="flex gap-4 items-center">
     <a href="/" class="text-body-xlarge flex items-center"><Icon name="wordmark" class="text-body-xlarge hidden sm:block" /><Icon name="logomark" class="text-heading-medium" /></a>
     <ul class="hidden md:flex gap-8 md:items-center">
-      <Navlink href="/cases" variant="MainPage">Cases</Navlink>
-      <NavlinkDropdown label="Services" variant="services" />
-      <Navlink href="/build" variant="MainPage">Blog</Navlink>
-      <NavlinkDropdown label="Om Os" variant="about" />
+      <li><Navlink href="/cases" variant="MainPage">Cases</Navlink></li>
+      <li><NavlinkDropdown label="Services" variant="services" /></li>
+      <li><Navlink href="/build" variant="MainPage">Blog</Navlink></li>
+      <li><NavlinkDropdown label="Om Os" variant="about" /></li>
     </ul>
   </nav>
 
