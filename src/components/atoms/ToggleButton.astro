@@ -1,0 +1,10 @@
+---
+import { Icon } from "astro-icon/components";
+
+const { icon } = Astro.props;
+const theme = icon === "sun" ? "light" : "dark";
+---
+
+<button id={icon} class="p-1 rounded-full transition hover:bg-hover data-[active=true]:bg-accent">
+  <Icon name={icon} class="text-text-primary text-body-xlarge" />
+</button>

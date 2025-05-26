@@ -2,6 +2,7 @@
 import Link from "../atoms/Link.astro";
 import Button from "../atoms/Button.astro";
 import { Icon } from "astro-icon/components";
+import ModeToggle from "../molecules/ModeToggle.astro";
 ---
 
 <footer class="grid grid-cols-4 lg:grid-cols-12 lg:grid-rows-7 px-[max(1rem,_50%_-_var(--content-width)_/_2)] overflow-hidden py-32 relative lg:h-[90vh] lg:min-h-[800px] lg:max-h-[1000px] lg:gap-6">
@@ -16,7 +17,8 @@ import { Icon } from "astro-icon/components";
         <li class="pb-2 lg:pb-0"><a href="tel:+45 42 41 61 60">+45 42 41 61 60</a></li>
         <li class="pb-6 lg:pb-0"><a href="mailto:info@twentyfour.dk">info@twentyfour.dk</a></li>
       </ul>
-      <div class="self-end">toggle</div>
+      <!-- <div class="self-end">toggle</div> -->
+      <ModeToggle />
     </section>
 
     <section class="lg:flex lg:gap-4 lg:justify-between lg:items-center z-10">
