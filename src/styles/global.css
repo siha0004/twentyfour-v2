@@ -145,8 +145,49 @@
   --color-brand-licorice: var(--color-licorice-90);
 }
 
-/* Text styles */
-@layer components {
+/* Custom cursor */
+@layer utilities {
+  [data-theme="dark"] {
+    /* Background color */
+    --color-background-primary: var(--color-licorice-90);
+    --color-background-secondary: var(--color-licorice-75);
+    --color-background-glass: var(--color-licorice-75);
+    --color-background-succes: var(--color-green-75);
+    --color-background-warning: var(--color-red-75);
+
+    /* Border color */
+    --color-border-primary: var(--color-licorice-25);
+    --color-border-secondary: var(--color-licorice-75);
+    --color-border-accent: var(--color-lime-45);
+    --color-border-succes: var(--color-green-50);
+    --color-border-warning: var(--color-red-50);
+
+    /* Text color */
+    --color-text-primary: var(--color-cream-10);
+    --color-text-secondary: var(--color-cream-35);
+    --color-text-alternate: var(--color-licorice-90);
+    --color-text-succes: var(--color-green-10);
+    --color-text-warning: var(--color-red-10);
+
+    /* Link color */
+    --color-link-text: var(--color-cream-10);
+    --color-link-text-hover: var(--color-cream-35);
+    --color-link-text-visited: var(--color-cream-60);
+
+    /* Button Primary color */
+    --color-button-primary-text: var(--color-licorice-90);
+    --color-button-primary-background: var(--color-lime-45);
+    --color-button-primary-background-hover: var(--color-lime-60);
+    --color-button-primary-background-pressed: var(--color-lime-75);
+
+    /* Button Primary color */
+    --color-button-secondary-text: var(--color-cream-10);
+    --color-button-secondary-border: var(--color-licorice-25);
+    --color-button-secondary-background: var(--color-licorice-75);
+    --color-button-secondary-background-hover: var(--color-licorice-50);
+    --color-button-secondary-background-pressed: var(--color-licorice-90);
+  }
+
   .heading-display {
     @apply text-heading-huge font-normal;
   }
@@ -174,6 +215,13 @@
     @apply py-32 border-b border-b-border-secondary;
   }
 
+  .customcursor {
+    cursor: url("/CustomCursorCase.svg"), pointer;
+  }
+}
+
+/* Text styles */
+@layer components {
   body {
     --content-width: 1400px;
 
@@ -218,12 +266,5 @@
     -webkit-appearance: none;
     appearance: none;
     display: none;
-  }
-}
-
-/* Custom cursor */
-@layer utilities {
-  .customcursor {
-    cursor: url("/CustomCursorCase.svg"), pointer;
   }
 }
