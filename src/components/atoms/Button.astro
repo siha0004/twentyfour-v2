@@ -1,7 +1,7 @@
 ---
 import { Icon } from "astro-icon/components";
 
-const { id, icon, variant = "primary", size = "large", hide = "false" } = Astro.props;
+const { id, iconPosition = "right", icon, variant = "primary", size = "large", hide = "false" } = Astro.props;
 let buttonStyling;
 
 const variantClasses = {
@@ -12,6 +12,7 @@ const variantClasses = {
 const sizeClasses = {
   base: "px-5 py-2",
   large: "px-8 py-3",
+  icon: "p-3",
 };
 
 if (hide === "mobile") {
@@ -24,6 +25,7 @@ if (hide === "mobile") {
 ---
 
 <button id={id} class:list={[buttonStyling, variantClasses[variant], sizeClasses[size]]}>
+  {iconPosition === "left" && icon && <Icon name={icon} class="text-text-primary text-body-large" />}
   <slot />
-  {icon && <Icon name={icon} class="text-current" />}
+  {iconPosition === "right" && icon && <Icon name={icon} class="text-text-primary inline-flex items-center gap-4 " />}
 </button>
