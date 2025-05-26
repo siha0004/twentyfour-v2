@@ -10,9 +10,9 @@ import NavMobile from "../molecules/NavMobile.astro";
   <nav class="flex gap-4 items-center">
     <a href="/" class="text-body-xlarge flex items-center"><Icon name="wordmark" class="text-body-xlarge hidden sm:block" /><Icon name="logomark" class="text-heading-medium" /></a>
     <ul class="hidden md:flex gap-8 md:items-center">
-      <li><Navlink href="/cases" variant="MainPage">Cases</Navlink></li>
+      <li><Navlink href="/cases">Cases</Navlink></li>
       <li><NavlinkDropdown label="Services" variant="services" /></li>
-      <li><Navlink href="/build" variant="MainPage">Blog</Navlink></li>
+      <li><Navlink href="/build">Blog</Navlink></li>
       <li><NavlinkDropdown label="Om Os" variant="about" /></li>
     </ul>
   </nav>
@@ -20,17 +20,57 @@ import NavMobile from "../molecules/NavMobile.astro";
   <div id="green" class="flex flex-col items-end">
     <div id="yellow" class="flex items-center gap-4">
       <Button size="base" id="openModalBtnDesk" hide="mobile">Kontakt os</Button>
-      <button id="burger" class="md:hidden transition-transform rotate-180">
-        <Icon name="fan" />
-      </button>
+      <div class="burger">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
     </div>
   </div>
 </header>
 <NavMobile />
 
+<style>
+  .burger {
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+  }
+
+  .burger .line {
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-text-primary);
+    margin-bottom: 5px;
+    transition: 0.2s linear;
+  }
+
+  .burger.active .line:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+    transition: 0.2s linear;
+  }
+
+  .burger.active .line:nth-child(2) {
+    opacity: 0;
+    transition: 0.15s linear;
+  }
+
+  .burger.active .line:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+    transition: 0.2s linear;
+  }
+
+  @media (min-width: 768px) {
+    .burger {
+      display: none;
+    }
+  }
+</style>
+
 <script>
   // BURGER MENU
-  const burger = document.querySelector("#burger");
+  // const burger = document.querySelector("#burger");
+  const burger = document.querySelector(".burger");
   const navMobile = document.querySelector("#navMobile");
 
   let burgerIsOpen = false;
@@ -38,7 +78,7 @@ import NavMobile from "../molecules/NavMobile.astro";
   burger?.addEventListener("click", () => {
     burgerIsOpen = !burgerIsOpen;
     navMobile?.classList.toggle("translate-x-full");
-    burger?.classList.toggle("rotate-180");
+    burger?.classList.toggle("active");
   });
 
   // OVERLAY SCRIPT MOBILE
