@@ -6,3 +6,39 @@ import ToggleButton from "../atoms/ToggleButton.astro";
   <ToggleButton icon="light" />
   <ToggleButton icon="dark" />
 </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const light = document.querySelector("#light");
+    const dark = document.querySelector("#dark");
+
+    const setTheme = (theme) => {
+      document.body.dataset.theme = theme;
+
+      if (theme === "light") {
+        light?.classList.add("bg-cream-60");
+        dark?.classList.remove("bg-cream-60");
+      } else {
+        dark?.classList.add("bg-cream-60");
+        light?.classList.remove("bg-cream-60");
+      }
+    };
+
+    light?.addEventListener("click", () => setTheme("light"));
+    dark?.addEventListener("click", () => setTheme("dark"));
+  });
+</script>
+
+<!-- <script>
+  const light = document.querySelector("#light");
+  const dark = document.querySelector("#dark");
+
+  light?.addEventListener("click", () => {
+    light.classList.add("bg-cream-60");
+    dark?.classList.remove("bg-cream-60");
+  });
+  dark?.addEventListener("click", () => {
+    dark.classList.add("bg-cream-60");
+    light?.classList.remove("bg-cream-60");
+  });
+</script> -->
