@@ -9,7 +9,7 @@ const { title, text, variant, button } = Astro.props;
   <article class="col-start-1 col-span-4 row-start-2 row-span-2 lg:col-span-6 lg:row-span-2  pb-32">
     <h1 class="heading-xlarge pb-3 lg:pb-5">{title}</h1>
     <p class="text-body-large text-text-secondary lg:max-w-2xl mb-8">{text}</p>
-    {button && <Link variant="ButtonSecondary">Gå tilbage hvor du kom fra</Link> }
+    {button && <Link variant="ButtonSecondary"icon ="arrow-left" iconPosition="left" >Gå tilbage hvor du kom fra</Link> }
   </article>
  { variant == "default" &&
  ( 
