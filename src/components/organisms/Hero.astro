@@ -1,6 +1,7 @@
 ---
 import { Icon } from "astro-icon/components";
 import Link from "../atoms/Link.astro";
+import GraphicIcons from "../atoms/GraphicIcons.astro";
 
 const { title, text, variant, button } = Astro.props;
 ---
@@ -13,9 +14,10 @@ const { title, text, variant, button } = Astro.props;
   </article>
  { variant == "default" &&
  ( 
-     <div class="col-start-3 row-start-4 lg:col-start-9 lg:row-start-2"><Icon name="butterfly" class="text-graphic-small" /></div>
-      <div class=" col-start-4 row-start-4 lg:row-start-2 lg:col-start-11  lg:col-span-2"><Icon name="flower" class="text-graphic-large" /></div>
-      <div class=" col-start-3 row-start-1"><Icon name="fan" class="text-graphic-medium" /></div>
+ <GraphicIcons id="" butterfly="true" size="small" position="col-start-3 row-start-3 lg:col-start-9 lg:row-start-2" />   
+ <GraphicIcons id="" flower="true" size="large" position="col-start-4 row-start-3 lg:row-start-2 lg:col-start-11  lg:col-span-2 lg:row-start-2" />   
+ <GraphicIcons id="" fan="true" size="medium" position=" col-start-3 row-start-1" />   
+
       
  )}
 </section>
