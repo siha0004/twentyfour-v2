@@ -91,12 +91,6 @@
   --text-heading-xlarge--line-height: calc(var(--text-heading-xlarge) * 110%);
   --text-heading-huge--line-height: calc(var(--text-heading-huge) * 110%);
 
-  /* Grafikker */
-  /* Clamp generator https://utopia.fyi/clamp/calculator?a=390,1728,32—48 */
-
-  --text-graphic-large: clamp(7.5rem, 4.8038rem + 11.0613vw, 16.75rem);
-  --text-graphic-medium: clamp(4.5rem, 3.1155rem + 5.6801vw, 9.25rem);
-  --text-graphic-small: clamp(2rem, 1.7085rem + 1.1958vw, 3rem);
   /****************************** TOKENS - COLORS******************************/
 
   /* Background color */
@@ -215,6 +209,15 @@
     @apply py-32 border-b border-b-border-secondary;
   }
 
+  .large {
+    width: clamp(7.5rem, 4.8038rem + 11.0613vw, 16.75rem);
+  }
+  .medium {
+    width: clamp(4.5rem, 3.1155rem + 5.6801vw, 9.25rem);
+  }
+  .small {
+    width: clamp(2rem, 1.7085rem + 1.1958vw, 3rem);
+  }
   .customcursor {
     cursor: url("/CustomCursorCase.svg"), pointer;
   }
