@@ -1,5 +1,5 @@
 ---
-const { fan = "false", butterfly = "false", flower = "false", square = "false", ring = "false", size = "" } = Astro.props;
+const { fan = "false", butterfly = "false", flower = "false", square = "false", ring = "false", size = "", id = "square", position = "" } = Astro.props;
 
 const sizeClasses = {
   large: "w-[268px] h-[268px]",
@@ -10,7 +10,7 @@ const sizeClasses = {
 
 <!-- Fan Icon -->{
   fan == "true" && (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 148 148" fill="none" class:list={[sizeClasses[size]]}>
+    <svg id={id} class={position} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 148 148" fill="none" class:list={[sizeClasses[size]]}>
       <g clip-path="url(#clip0_452_3014)">
         <path d="M74 0C94.707 0 111.493 16.7863 111.493 37.4933C111.493 55.2487 99.1513 70.1208 82.5784 74H148C148 94.707 131.214 111.493 110.507 111.493C92.751 111.493 77.8789 99.1508 74 82.5774V148C53.293 148 36.5067 131.214 36.5067 110.507C36.5067 92.7513 48.8487 77.8792 65.4216 74H0C0 53.293 16.7863 36.5067 37.4933 36.5067C55.2487 36.5067 70.1208 48.8487 74 65.4216V0Z" fill="url(#paint0_linear_452_3014)" />
       </g>
@@ -30,7 +30,7 @@ const sizeClasses = {
 <!-- Butterfly Icon -->
 {
   butterfly == "true" && (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 148 148" fill="none" class:list={[sizeClasses[size]]}>
+    <svg id={id} class={position} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 148 148" fill="none" class:list={[sizeClasses[size]]}>
       <path d="M135.486 9C136.636 9 137.778 9.02839 138.913 9.08578C138.971 10.2211 139 11.3639 139 12.5135C139 40.1434 122.214 63.8525 98.2841 74C122.214 84.1475 139 107.857 139 135.486C139 136.636 138.972 137.778 138.914 138.913C137.779 138.971 136.636 139 135.486 139C107.857 139 84.1475 122.214 74 98.2841C63.8525 122.214 40.1434 139 12.5135 139C11.3639 139 10.2211 138.971 9.08578 138.913C9.02839 137.778 9 136.636 9 135.486C9 107.857 25.7854 84.1477 49.7151 74C25.7854 63.8523 9 40.1431 9 12.5135C9 11.3639 9.02921 10.2211 9.08664 9.08578C10.2217 9.02839 11.3642 9 12.5135 9C40.1431 9 63.8523 25.7854 74 49.7151C84.1477 25.7854 107.857 9 135.486 9Z" fill="url(#paint0_linear_452_3006)" />
       <defs>
         <linearGradient id="paint0_linear_452_3006" x1="74" y1="9" x2="74" y2="139" gradientUnits="userSpaceOnUse">
@@ -45,7 +45,7 @@ const sizeClasses = {
 <!-- Flower Icon -->
 {
   flower == "true" && (
-    <svg xmlns="http://www.w3.org/2000/svg" width="148" height="148" viewBox="0 0 148 148" fill="none" class:list={[sizeClasses[size]]}>
+    <svg id={id} class={position} xmlns="http://www.w3.org/2000/svg" width="148" height="148" viewBox="0 0 148 148" fill="none" class:list={[sizeClasses[size]]}>
       <g clip-path="url(#clip0_452_3010)">
         <path
           d="M74 0C80.539 0 85.84 5.30095 85.84 11.84V44.4655L109.107 21.1989C113.73 16.5752 121.227 16.5751 125.851 21.1989C130.475 25.8227 130.475 33.3196 125.851 37.9433L100.648 63.1467H136.16C142.699 63.1467 148 68.4476 148 74.9867C148 81.5257 142.699 86.8267 136.16 86.8267H103.571L125.851 109.107C130.474 113.73 130.475 121.227 125.851 125.851C121.227 130.475 113.73 130.474 109.107 125.851L85.84 102.584V136.16C85.84 142.699 80.539 148 74 148C67.461 148 62.16 142.699 62.16 136.16V101.634L37.9433 125.851C33.3196 130.475 25.8227 130.475 21.1989 125.851C16.5751 121.227 16.5752 113.73 21.1989 109.107L43.4789 86.8267H11.84C5.30095 86.8267 0 81.5257 0 74.9867C0 68.4476 5.30095 63.1467 11.84 63.1467H46.4022L21.1989 37.9433C16.5751 33.3195 16.5751 25.8227 21.1989 21.1989C25.8227 16.5751 33.3195 16.5751 37.9433 21.1989L62.16 45.4156V11.84C62.16 5.30095 67.461 0 74 0Z"
@@ -68,7 +68,7 @@ const sizeClasses = {
 <!-- Square Icon -->
 {
   square == "true" && (
-    <svg xmlns="http://www.w3.org/2000/svg" width="148" height="148" viewBox="0 0 148 148" fill="none" class:list={[sizeClasses[size]]}>
+    <svg id={id} class={position} xmlns="http://www.w3.org/2000/svg" width="148" height="148" viewBox="0 0 148 148" fill="none" class:list={[sizeClasses[size]]}>
       <path fill-rule="evenodd" clip-rule="evenodd" d="M106.607 7C125.602 7 141 22.3984 141 41.3933C141 56.553 131.192 69.4213 117.575 74C131.192 78.5787 141 91.447 141 106.607C141 125.602 125.602 141 106.607 141C91.447 141 78.5787 131.192 74 117.575C69.4213 131.192 56.553 141 41.3933 141C22.3984 141 7 125.602 7 106.607C7 91.4473 16.8077 78.5789 30.4238 74C16.8077 69.4211 7 56.5527 7 41.3933C7 22.3984 22.3984 7 41.3933 7C56.5527 7 69.4211 16.8077 74 30.4238C78.5789 16.8077 91.4473 7 106.607 7ZM74 52.362C70.5797 62.5336 62.5336 70.5797 52.362 74C62.5334 77.4202 70.5795 85.4659 74 95.6372C77.4204 85.4661 85.4661 77.4204 95.6372 74C85.4659 70.5795 77.4202 62.5334 74 52.362Z" fill="url(#paint0_linear_452_3018)" />
       <defs>
         <linearGradient id="paint0_linear_452_3018" x1="27.1" y1="100.8" x2="119.56" y2="74" gradientUnits="userSpaceOnUse">
@@ -83,7 +83,7 @@ const sizeClasses = {
 <!-- Ring Icon -->
 {
   ring == "true" && (
-    <svg xmlns="http://www.w3.org/2000/svg" width="148" height="148" viewBox="0 0 148 148" fill="none">
+    <svg id={id} class={position} xmlns="http://www.w3.org/2000/svg" width="148" height="148" viewBox="0 0 148 148" fill="none" class:list={[sizeClasses[size]]}>
       <path
         fill-rule="evenodd"
         clip-rule="evenodd"
