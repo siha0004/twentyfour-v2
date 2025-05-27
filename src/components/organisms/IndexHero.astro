@@ -18,13 +18,25 @@ import { Icon } from "astro-icon/components";
     </p>
   </article>
 
-  <Icon name="ring" class="col-start-1 row-start-1 row-span-1 lg:col-span-2 text-graphic-medium" />
-  <Icon name="flower" class="col-start-3 lg:col-start-10 row-start-1 place-content-end text-graphic-small" />
-  <Icon name="butterfly" class="col-start-4 lg:col-start-11 col-span-2 row-start-2 row-span-2 text-graphic-large" />
-  <Icon name="square" class="col-start-1 row-start-5 lg:col-start-2 lg:col-span-2 lg:row-start-5 lg:row-span-2 text-graphic-medium" />
+  <Icon id="ring" name="ring" class="col-start-1 row-start-1 row-span-1 lg:col-span-2 text-graphic-medium" />
+  <Icon id="flower" name="flower" class="col-start-3 lg:col-start-10 row-start-1 place-content-end text-graphic-small" />
+  <Icon id="butterfly" name="butterfly" class="col-start-4 lg:col-start-11 col-span-2 row-start-2 row-span-2 text-graphic-large" />
+  <Icon id="square" name="square" class="col-start-1 row-start-5 lg:col-start-2 lg:col-span-2 lg:row-start-5 lg:row-span-2 text-graphic-medium" />
 </section>
 
-<style>
-  .gradient1 {
-  }
-</style>
+<script>
+  // Import af GSAP
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.to("#ring, #flower, #square, #butterfly", {
+    rotateZ: 180, // eller 360, alt efter hvor meget du vil have den til at dreje
+    scrollTrigger: {
+      trigger: "#ring",
+      start: "top", // starter når #ring rammer bunden af viewport
+      end: "bottom", // slutter når #ring rammer toppen af viewport
+      scrub: true,
+    },
+  });
+</script>
